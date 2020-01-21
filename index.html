@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <script src="https://kit.fontawesome.com/f2f561f988.js" crossorigin="anonymous"></script>
+
+        <meta charset="UTF-8">
+        <title>
+            Мяндекс.Муррркет
+        </title>
+        <style>
+            body {
+                margin: 0;
+                padding: auto;
+                font-family: Arial, Helvetica, sans-serif;
+                text-overflow: ellipsis;
+
+            }
+            a {
+                color: blue;
+            
+            }
+            a:hover {
+                color: red;
+                
+            }
+            img:hover {
+                opacity: .7;
+            }
+            
+            .main {
+                margin: auto;
+                max-width: 1400px;
+                display: table;
+                box-sizing: border-box;
+                
+            }
+
+            div.item {
+                max-width: 1400px;
+                display: table;
+                margin: 20px;
+
+            }
+
+            input:checked ~ div.item  {
+                max-width: 300px;
+                display: inline-block;
+                margin: 20px;
+                max-height: 650px;
+            }
+
+            .text {
+                max-width: inherit;
+                max-height: 250px;
+                margin: 0 auto auto auto;
+                box-sizing: border-box;
+                vertical-align: top;
+                display: table-cell;
+                text-overflow: ellipsis;                
+            }
+            .name {
+                text-overflow:ellipsis;
+                font-size: 18px; 
+                white-space: nowrap;
+                overflow:hidden;
+                
+            }
+            .description {
+                font-size: 12px; 
+                margin-top: 7px; 
+                text-overflow: ellipsis;                                        
+            }
+            .price {
+                display: inline;
+                font-weight: bold;
+                font-size: 18px;
+                color: brown;
+
+            }
+            .old_price {
+                display: inline;
+                font-size: 14px;
+                text-decoration: line-through;
+            }
+            .picture {
+                text-align: center;
+                max-height: 325px;
+                min-width: 320px;
+                max-width: 320px;
+                margin: auto;
+                margin-bottom: 7px;
+                vertical-align: bottom;
+                              
+            }
+
+            .review_stars_wrap{
+                overflow: hidden;
+                margin-top: 7px;
+                margin-bottom: 7px;
+            }
+            
+            .review_stars {
+                overflow: hidden;
+                position: relative;
+                float: left;
+            }
+            
+            .review_stars input {
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                z-index: 0;
+            }
+            
+            .review_stars input ~ label i{
+                color:#ccc;
+            }
+            
+            .review_stars input:checked ~ label i{
+                color: gold;
+            }
+            
+            .review_stars label {
+                float: right;
+                cursor: pointer;
+                position: relative;
+                z-index: 1;
+            }
+
+            .review_stars label:hover i, #review_stars label:hover ~ label i{
+                color: gold;
+            }
+
+            .category {
+                margin-top: 7px;
+                font-size: 12px;
+            }
+            .selector {
+                text-align: center;
+                margin: auto;
+            }
+            input {
+                display:block;
+                margin: auto;
+            }
+            label {
+                display:inline-block;
+                margin: auto; 
+                text-align: center;              
+            }
+        </style>
+    </head>
+    <body>
+        <div class="selector">
+            Отображать как таблицу:
+        </div>
+        <div class="main">
+
+            <input id="selector_table" type="checkbox" name="selector1" />
+
+            <div class="item">
+                <div class="picture">
+                    <a href=""><img src="images/01-Абиссинская.jpg" alt=""></a>
+
+                </div>
+                <div class="text">
+                    <div class="name">
+                       <a href="">Абиссинская </a> 
+
+                    </div>
+                    <div class="category">
+                        Короткошерстные
+
+                    </div>
+                    
+                    <div class="review_stars_wrap">
+                        <div class="review_stars">
+                            <input id="star-41" type="radio" name="stars1"/>
+                            <label title="Наидобрейший" for="star-41">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-31" type="radio" name="stars1"/>
+                            <label title="Добрый" for="star-31">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-21" type="radio" name="stars1" checked="checked" />
+                            <label title="Нормальный" for="star-21">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-11" type="radio" name="stars1"/>
+                            <label title="Злой" for="star-11">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-01" type="radio" name="stars1"/>
+                            <label title="Агрессивный" for="star-01">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            
+                        </div>
+                        </div>
+
+                    
+                    <div class="price">
+                        49 999 Р
+
+                    </div>
+                    <div class="old_price">59 999 Р</div>
+                    <div class="description">
+                        По характеру эти кошки подходят уравновешенным людям, их врожденная интеллигентность позволяет быстро воспитать взрослую и умную питомицу. 
+                        Абиссинка довольно общительна и подвижна, поэтому следует уделять внимание ее физическому развитию и почаще играть с ней. 
+                        Кошкам этой породы, как никаким другим, необходима собственная территория и большое количество игрушек.
+                    </div>
+                </div>
+            </div>  
+
+
+            <div class="item">
+                <div class="picture">
+                    <a href=""><img src="images/02-Австралийская дымчатая.jpg" alt=""> </a>
+
+                </div>
+                <section class="text">
+                    <div class="name">
+                       <a href="">Австралийская дымчатая </a> 
+
+                    </div>
+                    <div class="category">
+                        Короткошерстные
+
+                    </div>
+                    
+                    <div class="review_stars_wrap">
+                        <div class="review_stars">
+                            <input id="star-42" type="radio" name="stars2"/>
+                            <label title="Наидобрейший" for="star-42">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-32" type="radio" name="stars2"/>
+                            <label title="Добрый" for="star-32">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-22" type="radio" name="stars2" checked="checked" />
+                            <label title="Нормальный" for="star-22">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-12" type="radio" name="stars2"/>
+                            <label title="Злой" for="star-12">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-02" type="radio" name="stars2"/>
+                            <label title="Агрессивный" for="star-02">
+                                <i class="fas fa-star"></i>
+                            </label>
+                        </div>
+                        </div>
+
+
+                    <div class="price">
+                        99 999 Р
+
+                    </div>
+                    <article class="description">
+                        Австралийские дымчатые кошки очень общительны и привязаны к дому, им не нужна смена обстановки, они прекрасно чувствуют себя в замкнутых пространствах. 
+                        Они хорошо ладят с другими домашними животными, дружелюбно относятся к незнакомым людям и очень любят детей, поэтому их рекомендуют семьям с маленькими детьми. 
+                        Несмотря на свою общительность и нежный нрав, австралийские кошки прекрасно переносят одиночество.
+
+
+                    </article>
+                </section>
+            </div>  
+         
+            <div class="item">
+                <div class="picture">
+                    <a href=""><img src="images/03-Австралийская тиффани.jpg" alt=""> </a>
+
+                </div>
+                <section class="text">
+                    <div class="name">
+                       <a href="">Австралийская тиффани </a> 
+
+                    </div>
+                    <div class="category">
+                        Среднешерстные
+
+                    </div>
+                    <div class="review_stars_wrap">
+                        <div class="review_stars">
+                            <input id="star-43" type="radio" name="stars3"/>
+                            <label title="Наидобрейший" for="star-43">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-33" type="radio" name="stars3"/>
+                            <label title="Добрый" for="star-33">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-23" type="radio" name="stars3" checked="checked" />
+                            <label title="Нормальный" for="star-23">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-13" type="radio" name="stars3"/>
+                            <label title="Злой" for="star-13">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-03" type="radio" name="stars3"/>
+                            <label title="Агрессивный" for="star-03">
+                                <i class="fas fa-star"></i>
+                            </label>
+                        </div>
+                        </div>
+                    <div class="price">
+                        70 999 Р
+
+                    </div>
+                    <article class="description">
+                        Характер кошки очень мягкий, эти животные обладают чувством ритма, покладисты, общительны и очень любят играть. У них должно быть много игрушек, особенно в молодом возрасте. 
+                        Повзрослевшие австралийские тиффани становятся созерцателями, хотя так же охотно общаются с хозяином. 
+                        В уходе за кошкой есть особенность – ее шерсть следует вычесывать один раз в 2-3 дня, так как ей самой сложно поддерживать нормальное состояние такой длинной шерсти.                    
+                    </article>
+                </section>
+            </div>  
+
+            <div class="item">
+                <div class="picture">
+                    <a href=""><img src="images/04-Азиатская табби.jpg" alt=""> </a>
+
+                </div>
+                <section class="text">
+                    <div class="name">
+                       <a href="">Азиатская табби</a> 
+
+                    </div>
+                    <div class="category">
+                        Короткошерстные
+
+                    </div>
+                    <div class="review_stars_wrap">
+                        <div class="review_stars">
+                            <input id="star-44" type="radio" name="stars4"/>
+                            <label title="Наидобрейший" for="star-44">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-34" type="radio" name="stars4"/>
+                            <label title="Добрый" for="star-34">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-24" type="radio" name="stars4" checked="checked" />
+                            <label title="Нормальный" for="star-24">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-14" type="radio" name="stars4"/>
+                            <label title="Злой" for="star-14">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-04" type="radio" name="stars4"/>
+                            <label title="Агрессивный" for="star-04">
+                                <i class="fas fa-star"></i>
+                            </label>
+                        </div>
+                        </div>
+                    <div class="price">
+                        69 999 Р
+
+                    </div>
+                    <article class="description">
+                        Характер азиатской табби не доставит хлопот хозяину этой кошки – она отличается жизнелюбием, добротой, энергичностью и общительностью, любит играть и неплохо ладит с собаками и кошками. 
+                        Оставлять ее одну можно, но не слишком надолго – для душевного равновесия этой кошке нужно общение с людьми. 
+                        Особенно следует отметить сообразительность этих кошек – их можно довольно легко научить вести себя правильно.                    
+                    </article>
+                </section>
+            </div>  
+ 
+
+            <div class="item">
+                <div class="picture">
+                    <a href=""><img src="images/05-Азиатская дымчатая.jpg" alt=""> </a>
+
+                </div>
+                <section class="text">
+                    <div class="name">
+                       <a href="">Азиатская дымчатая</a> 
+
+                    </div>
+                    <div class="category">
+                        Короткошерстные
+
+                    </div>
+                    <div class="review_stars_wrap">
+                        <div class="review_stars">
+                            <input id="star-45" type="radio" name="stars5"/>
+                            <label title="Наидобрейший" for="star-45">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-35" type="radio" name="stars5"/>
+                            <label title="Добрый" for="star-35">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-25" type="radio" name="stars5" checked="checked" />
+                            <label title="Нормальный" for="star-25">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-15" type="radio" name="stars5"/>
+                            <label title="Злой" for="star-15">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-05" type="radio" name="stars5"/>
+                            <label title="Агрессивный" for="star-05">
+                                <i class="fas fa-star"></i>
+                            </label>
+                        </div>
+                        </div>
+                    <div class="price">
+                        67 999 Р
+
+                    </div>
+                    <article class="description">
+                        Характер азиатской дымчатой кошки нравится всем – они спокойные, послушные, смышленые, и, если правильно подойти к воспитанию и сразу объяснить, чего делать нельзя, кошка запомнит это на всю жизнь. 
+                        Важно уделять кошке внимание каждый день и хотя бы в течение получаса ласкать ее и играть с ней – она не может жить без общения и в изоляции плохо себя чувствует. 
+                        Хорошо уживается с детьми и домашними питомцами.                    
+                    </article>
+                </section>
+            </div>  
+
+            
+            <div class="item">
+                <div class="picture">
+                    <a href=""><img src="images/06-Азиатская короткошерстная.jpg" alt=""> </a>
+
+                </div>
+                <section class="text">
+                    <div class="name">
+                       <a href="">Азиатская короткошерстная</a> 
+
+                    </div>
+                    <div class="category">
+                        Короткошерстные
+
+                    </div>
+                    <div class="review_stars_wrap">
+                        <div class="review_stars">
+                            <input id="star-46" type="radio" name="stars6"/>
+                            <label title="Наидобрейший" for="star-46">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-36" type="radio" name="stars6"/>
+                            <label title="Добрый" for="star-36">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-26" type="radio" name="stars6" checked="checked" />
+                            <label title="Нормальный" for="star-26">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-16" type="radio" name="stars6"/>
+                            <label title="Злой" for="star-16">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-06" type="radio" name="stars6"/>
+                            <label title="Агрессивный" for="star-06">
+                                <i class="fas fa-star"></i>
+                            </label>
+                        </div>
+                        </div>
+                    <div class="price">
+                        58 999 Р
+
+                    </div>
+                    <div class="old_price">59 999</div>
+                    <article class="description">
+                        Кошка добрая, общительная и ласковая, привязана к хозяину, ненавязчива. 
+                        Азиатские короткошерстные кошки прекрасно уживаются с собаками и своими сородичами, поэтому их могут заводить любители большого количества животных в доме.                    
+                    </article>
+                </section>
+            </div>  
+
+
+            <div class="item">
+                <div class="picture">
+                    <a href=""><img src="images/07-Азиатская длинношерстная.jpg" alt=""> </a>
+
+                </div>
+                <section class="text">
+                    <div class="name">
+                        <title>Азиатская длинношерстная (Тиффани)</title>
+                       <a href="" title="Азиатская длинношерстная (Тиффани)">Азиатская длинношерстная (Тиффани)</a> 
+
+                    </div>
+                    <div class="category">
+                        Длинношерстные
+
+                    </div>
+                    <div class="review_stars_wrap">
+                        <div class="review_stars">
+                            <input id="star-47" type="radio" name="stars7"/>
+                            <label title="Наидобрейший" for="star-47">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-37" type="radio" name="stars7"/>
+                            <label title="Добрый" for="star-37">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-27" type="radio" name="stars7" checked="checked" />
+                            <label title="Нормальный" for="star-27">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-17" type="radio" name="stars7"/>
+                            <label title="Злой" for="star-17">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-07" type="radio" name="stars7"/>
+                            <label title="Агрессивный" for="star-07">
+                                <i class="fas fa-star"></i>
+                            </label>
+                        </div>
+                        </div>
+                    <div class="price">
+                        82 999 Р
+
+                    </div>
+                    
+                    <article class="description">
+                        Тиффани очень привязаны к своим хозяевам и могут быть навязчивыми, им нужно постоянно быть рядом с человеком, и они могут ходить за ним из комнаты в комнату. 
+                        Они энергично, но не слишком шумно играют, ладят с детьми, любят гулять. 
+                        Азиатская длинношерстная кошка – это очень интеллигентное и умное существо, она любит «разговаривать» с хозяином, и поэтому подойдет людям, живущим в одиночестве, но она еще и очень любознательна, поэтому нужно за ней хорошо следить.                    
+                    </article>
+                </section>
+            </div>             
+  
+            <div class="item">
+                <div class="picture">
+                    <a href=""><img src="images/08-Американская жесткошерстная.jpg" alt=""> </a>
+
+                </div>
+                <section class="text">
+                    <div class="name">
+                       <a href="">Американская жесткошерстная</a> 
+
+                    </div>
+                    <div class="category">
+                        Короткошерстные
+
+                    </div>
+                    <div class="review_stars_wrap">
+                        <div class="review_stars">
+                            <input id="star-48" type="radio" name="stars8"/>
+                            <label title="Наидобрейший" for="star-48">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-38" type="radio" name="stars8"/>
+                            <label title="Добрый" for="star-38">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-28" type="radio" name="stars8" checked="checked" />
+                            <label title="Нормальный" for="star-27">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-18" type="radio" name="stars8"/>
+                            <label title="Злой" for="star-18">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-08" type="radio" name="stars8"/>
+                            <label title="Агрессивный" for="star-08">
+                                <i class="fas fa-star"></i>
+                            </label>
+                        </div>
+                        </div>
+                    <div class="price">
+                        69 999 Р
+
+                    </div>
+                    
+                    <article class="description">
+                        По характеру американская жесткошерстная кошка – хороший компаньон, открыта для общения, легко адаптируется к новым условиям, охотно играет и двигается. 
+                        Она довольно привязчива и любопытна, неприхотлива и спокойна. 
+                        Подойдет любителям кошек, у которых нет возможности проводить с кошкой целый день и постоянно следить за ней.
+                    </article>
+                </section>
+            </div>
+
+
+            <div class="item">
+                <div class="picture">
+                    <a href=""><img src="images/09-Американская кольцехвостая.jpg" alt=""> </a>
+
+                </div>
+                <section class="text">
+                    <div class="name">
+                       <a href="">Американская кольцехвостая</a> 
+
+                    </div>
+                    <div class="category">
+                        Короткошерстные
+
+                    </div>
+                    <div class="review_stars_wrap">
+                        <div class="review_stars">
+                            <input id="star-49" type="radio" name="stars9"/>
+                            <label title="Наидобрейший" for="star-49">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-39" type="radio" name="stars9"/>
+                            <label title="Добрый" for="star-39">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-29" type="radio" name="stars9" checked="checked" />
+                            <label title="Нормальный" for="star-29">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-19" type="radio" name="stars9"/>
+                            <label title="Злой" for="star-19">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-09" type="radio" name="stars9"/>
+                            <label title="Агрессивный" for="star-09">
+                                <i class="fas fa-star"></i>
+                            </label>
+                        </div>
+                        </div>
+                    <div class="price">
+                        19 999 Р
+
+                    </div>
+                    
+                    <article class="description">
+                        По характеру американская жесткошерстная кошка – хороший компаньон, открыта для общения, легко адаптируется к новым условиям, охотно играет и двигается. 
+                        Она довольно привязчива и любопытна, неприхотлива и спокойна. 
+                        Подойдет любителям кошек, у которых нет возможности проводить с кошкой целый день и постоянно следить за ней.
+                    </article>
+                </section>
+            </div>
+
+            <div class="item">
+                <div class="picture">
+                    <a href=""><img src="images/10-Американская короткошерстная.jpg" alt=""> </a>
+
+                </div>
+                <section class="text">
+                    <div class="name">
+                       <a href="">Американская короткошерстная</a> 
+
+                    </div>
+                    <div class="category">
+                        Короткошерстные
+
+                    </div>
+                    <div class="review_stars_wrap">
+                        <div class="review_stars">
+                            <input id="star-410" type="radio" name="stars10"/>
+                            <label title="Наидобрейший" for="star-410">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-310" type="radio" name="stars10"/>
+                            <label title="Добрый" for="star-310">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-210" type="radio" name="stars10" checked="checked" />
+                            <label title="Нормальный" for="star-210">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-110" type="radio" name="stars10"/>
+                            <label title="Злой" for="star-110">
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <input id="star-010" type="radio" name="stars10"/>
+                            <label title="Агрессивный" for="star-010">
+                                <i class="fas fa-star"></i>
+                            </label>
+                        </div>
+                        </div>
+                    <div class="price">
+                        14 999 Р
+
+                    </div>
+                    
+                    <article class="description">
+                        Кошки обладают общительным нравом, хорошо ведут себя дома и на выставках, контактны, не агрессивны, адаптивны. 
+                        У них есть две интересные особенности – они совсем не боятся воды и закапывают запасы пищи, как собаки.
+                    </article>
+                </section>
+            </div>
+
+
+        </div>
+    </body>
+</html>
