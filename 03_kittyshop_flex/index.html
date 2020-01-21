@@ -1,0 +1,535 @@
+<!DOCTYPE html-5>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .header {
+                margin: auto;
+                width:1000px;
+                height: 7.5%;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                background-color: #eee;
+            }
+            .layout {
+                margin: auto;
+                background-color: #eee;
+                width: 1000px;
+                height: 92%;
+                display: flex;
+                flex-wrap: wrap;
+                align-content: space-between;
+                justify-content: space-between;
+            }    
+
+            .menu {
+                width: 17%;
+                margin: 5px;
+                background-color: #ddd;
+            }
+
+            .rating {
+                width: 15%;
+                height: fit-content;
+                padding: 5px;
+                padding-top: 0;
+                background-color: #ddd;
+                display: flex;
+                flex-wrap: wrap;
+                margin: 5px;
+            }
+            .footer {
+                width: 100%;
+                height: 35px;
+                margin: auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                background-color: #eee;
+            }
+            .address {
+                margin: 10px;
+            }
+            .copyright {
+                margin: 10px;
+            }
+            .menu_item {
+                margin: 10px;
+            }
+            .main {
+                
+                display: flex;
+                width: 64%;
+                align-self: flex-start;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-content: flex-start;
+            }
+
+            .img {
+                margin: 4px;
+                flex-basis:32%;
+                height: 200px;
+            }
+
+            .img:nth-child(2) {
+                flex-basis:65%;
+            }
+            .img:nth-child(10) {
+                flex-basis:65%;
+            }
+            .img:nth-child(6) {
+                flex-basis:65%;
+            }
+            .img:nth-child(14) {
+                flex-basis:65%;
+            }
+            .img:nth-child(8) {
+                flex-basis:100%;
+            }
+            .img:nth-child(16) {
+                flex-basis:100%;
+            }
+            
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                box-sizing: content-box;
+                object-fit: cover;
+            }
+            .desc {
+                opacity: 0;
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: center;
+                padding: 5px;
+                width: 150px;
+                height: 30px;
+                position: relative;
+                bottom: 60px;
+                left: 15px;
+                background-color: rgba(255, 255, 255, .75);
+             
+                
+            }
+
+            .img:hover .desc {
+                opacity: 1;
+            }
+            .paroda_selector {
+                display: none;
+            }
+
+            .label_abis::before {
+                content: "Абиссинская";
+                color: black;
+                display: block;
+                width: 100%;
+                height: 44px;
+                color: black;
+                padding: 10px;
+                box-sizing: border-box;
+                border: #555;
+                border-style: solid;
+                border-width: 1px;
+                border-left: none;
+                border-right: none;
+            }
+            .label_abis:hover {
+                cursor: pointer;
+            }
+            #abis:checked ~ .menu .label_abis::before {
+                content: "Абиссинская";
+                color: white;
+                background-color: grey;
+            }
+            .label_brit::before {
+                content: "Британская";
+                display: block;
+                width: 100%;
+                height: 44px;
+                color: black;
+                padding: 10px;
+                box-sizing: border-box;
+                border: #555;
+                border-style: solid;
+                border-width: 1px;
+                border-left: none;
+                border-right: none;
+
+            }
+
+            .label_brit:hover {
+                cursor: pointer;
+            }
+
+            #brit:checked ~ .menu .label_brit::before {
+                content: "Британская";
+                color: white;
+                background-color: grey;
+
+            }
+            .label_rus::before {
+                content: "Русская голубая";
+                display: block;
+                width: 100%;
+                height: 44px;
+                color: black;
+                padding: 10px;
+                box-sizing: border-box;
+                border: #555;
+                border-style: solid;
+                border-width: 1px;
+                border-left: none;
+                border-right: none;
+
+            }
+
+            .label_rus:hover {
+                cursor: pointer;
+            }
+
+            #rus:checked ~ .menu .label_rus::before {
+                content: "Русская голубая";
+                color: white;
+                background-color: grey;
+
+            }
+            .label_siam::before {
+                content: "Сиамская";
+                display: block;
+                width: 100%;
+                height: 44px;
+                color: black;
+                padding: 10px;
+                box-sizing: border-box;
+                border: #555;
+                border-style: solid;
+                border-width: 1px;
+                border-left: none;
+                border-right: none;
+            }
+
+            .label_siam:hover {
+                cursor: pointer;
+            }
+
+            #siam:checked ~ .menu .label_siam::before {
+                content: "Сиамская";
+                color: white;
+                background-color: grey;
+            }
+            .label_all::before {
+                content: "Все";
+                display: block;
+                width: 100%;
+                height: 44px;
+                color: black;
+                padding: 10px;
+                box-sizing: border-box;
+                border: #555;
+                border-style: solid;
+                border-width: 1px;
+                border-left: none;
+                border-right: none;
+            }
+
+            .label_all:hover {
+                cursor: pointer;
+            }
+
+            #all:checked ~ .menu .label_all::before {
+                content: "Все";
+                color: white;
+                background-color: grey;
+            }
+
+            #brit:checked ~ .main .img:not(#brit) {
+                opacity: 0.3;
+            }
+            #brit:checked ~ .main .img:not(#brit) .desc {
+                display: none;
+            }
+
+            #abis:checked ~ .main .img:not(#abis) {
+                opacity: 0.3;
+            }
+            #abis:checked ~ .main .img:not(#abis) .desc {
+                display: none;
+            }
+
+            #rus:checked ~ .main .img:not(#rus) {
+                opacity: 0.3;
+            }
+            #rus:checked ~ .main .img:not(#rus) .desc {
+                display: none;
+            }
+
+            #siam:checked ~ .main .img:not(#siam) {
+                opacity: 0.3;
+            }
+            #siam:checked ~ .main .img:not(#siam) .desc {
+                display: none;
+            }
+
+            .rate {
+                display: flex; 
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin: 5px 0;
+            }
+            .rate_name {
+                flex-basis: 100%;
+            }
+            #r01 .rate_pic {
+                align-self: flex-start;
+                width: 10px;
+                height: 15px;
+                background: linear-gradient(90deg, #fff, #f00);
+                margin-right: 40px;
+            }
+            #r02 .rate_pic {
+                align-self: flex-start;
+                width: 20px;
+                height: 15px;
+                background: linear-gradient(90deg, #fff, rgb(255, 38, 0));
+                margin-right: 40px;
+            }
+            #r03 .rate_pic {
+                align-self: flex-start;
+                width: 30px;
+                height: 15px;
+                background: linear-gradient(90deg, #fff, rgb(255, 94, 0));
+                margin-right: 40px;
+            }
+            #r04 .rate_pic {
+                align-self: flex-start;
+                width: 40px;
+                height: 15px;
+                background: linear-gradient(90deg, #fff, rgb(255, 136, 0));
+                margin-right: 40px;
+            }
+            #r05 .rate_pic {
+                align-self: flex-start;
+                width: 50px;
+                height: 15px;
+                background: linear-gradient(90deg, #fff, rgb(255, 196, 0));
+                margin-right: 40px;
+            }
+            #r06 .rate_pic {
+                align-self: flex-start;
+                width: 60px;
+                height: 15px;
+                background: linear-gradient(90deg, #fff, rgb(255, 217, 0));
+                margin-right: 40px;
+            }
+            #r07 .rate_pic {
+                align-self: flex-start;
+                width: 70px;
+                height: 15px;
+                background: linear-gradient(90deg, #fff, rgb(229, 255, 0));
+                margin-right: 40px;
+            }
+            #r08 .rate_pic {
+                align-self: flex-start;
+                width: 80px;
+                height: 15px;
+                background: linear-gradient(90deg, #fff, rgb(166, 255, 0));
+                margin-right: 40px;
+            }
+            #r09 .rate_pic {
+                align-self: flex-start;
+                width: 90px;
+                height: 15px;
+                background: linear-gradient(90deg, #fff, rgb(30, 255, 0));
+                margin-right: 40px;
+            }
+            #r10 .rate_pic {
+                align-self: flex-start;
+                width: 100px;
+                height: 15px;
+                background: linear-gradient(90deg, #fff, rgb(0, 255, 21));
+                margin-right: 40px;
+            }
+
+            .order:checked ~ .rate#r01 {
+                order: 10;
+            }
+            .order:checked ~ .rate#r02 {
+                order: 9;
+            }
+            .order:checked ~ .rate#r03 {
+                order: 8;
+            }
+            .order:checked ~ .rate#r04 {
+                order: 7;
+            }
+            .order:checked ~ .rate#r05 {
+                order: 6;
+            }
+            .order:checked ~ .rate#r06 {
+                order: 5;
+            }
+            .order:checked ~ .rate#r07 {
+                order: 4;
+            }
+            .order:checked ~ .rate#r08 {
+                order: 3;
+            }
+            .order:checked ~ .rate#r09 {
+                order: 2;
+            }
+            .order:checked ~ .rate#r10 {
+                order: 1;
+            }
+
+            .order_label {
+                font-size: small;
+                margin-bottom: 20px;
+            }
+
+            h4 {
+                color: red;
+                margin-bottom: 0;
+                flex-basis: 100%;
+            }
+
+        </style>
+    </head>
+    <body>            
+        <div class="header">
+            <h1>Бабуленькины котятки</h1>
+        </div>
+
+        <div class="layout">
+            
+            <input type="radio" id="abis" name="paroda" class="paroda_selector">
+            <input type="radio" id="brit" name="paroda" class="paroda_selector">
+            <input type="radio" id="rus" name="paroda" class="paroda_selector">
+            <input type="radio" id="siam" name="paroda" class="paroda_selector"> 
+            <input type="radio" id="all" name="paroda" class="paroda_selector" checked="checked"> 
+       
+            
+            <div class="menu">
+             
+                    <label for="abis" class="label_abis"></label>
+
+                    <label for="brit" class="label_brit"></label>
+                
+                    <label for="rus" class="label_rus"></label>
+                               
+                    <label for="siam" class="label_siam"></label>
+
+                    <label for="all" class="label_all"></label>
+
+            </div>
+
+            <div class="main">
+
+                <div class="img" id="abis">
+                    <img src="img/01.jpg" alt="">
+                    <article class="desc">
+                        Боря, 2 года
+                    </article>
+                </div>
+                <div class="img" id="abis">
+                    <img src="img/02.jpg" alt="">
+                    <article class="desc">
+                        Вася, 1 год
+                    </article>
+                </div>
+                <div class="img" id="brit">
+                    <img src="img/03.jpg" alt="">
+                    <article class="desc">
+                        Мурзик, 2 мес.
+                    </article>
+                    
+                </div>
+                <div class="img" id="brit">
+                    <img src="img/04.jpg" alt="">
+                    <article class="desc">
+                        Зухель, 11 лет
+                    </article>
+
+                </div>
+                <div class="img" id="rus">
+                    <img src="img/05.jpg" alt="">
+                    <article class="desc">
+                        Мотя, 3 года
+                    </article>
+                </div>
+                <div class="img" id="siam">
+                    <img src="img/06.jpg" alt="">
+                    <article class="desc">
+                        Ксюша, 4 года
+                    </article>
+                </div>
+                <div class="img" id="rus">
+                    <img src="img/07.jpg" alt="">
+                    <article class="desc">
+                        Мурка, 1.5 года
+                    </article>
+                </div>
+                <div class="img" id="siam">
+                    <img src="img/08.jpg" alt="">
+                    <article class="desc">
+                        Мирри, 2.5 года
+                    </article>
+                </div>         
+            </div>
+
+            
+            <div class="rating">
+                <h4>РЕЙТИНГ</h4>
+                <input type="checkbox" name="order" id="order" class="order"><label for="order" class="order_label">По убыванию</label>
+                <br>
+                <br>
+                
+                <div class="rate" id="r09">
+                    <div class="rate_name">Абиссинская</div>
+                    <div class="rate_pic"></div>
+                    <div class="rate_label">09</div>
+                </div>
+
+                <div class="rate" id="r07">
+                    <div class="rate_name">Русская голубая</div>
+                    <div class="rate_pic"></div>
+                    <div class="rate_label">07</div>
+                </div>
+
+                <div class="rate" id="r04">
+                    <div class="rate_name">Сиамская</div>
+                    <div class="rate_pic"></div>
+                    <div class="rate_label">04</div>
+                </div>
+                
+                <div class="rate" id="r06">
+                    <div class="rate_name">Британская</div>
+                    <div class="rate_pic"></div>
+                    <div class="rate_label">06</div>
+                </div>
+
+            </div>
+            
+            
+            <div class="footer">
+                <div class="copyright">
+                    ООО "Бабуленькины котятки", 2019
+                </div>
+                <div class="address">
+                    Наш адрес: ул. Котовая, 30
+                </div>
+            </div>
+        </div>
+       
+
+    </body>
+</html>
